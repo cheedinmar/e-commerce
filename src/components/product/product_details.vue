@@ -29,7 +29,7 @@
         </div>
         </div>
         <div class='flex items-center py-4'>
-        <button class='px-32 py-3 bg-blue-700 mr-4 rounded-md hover:shadow-lg text-white text-xs hover:shadow'>Button</button>
+        <button class='px-24 py-3 bg-blue-700 mr-4 rounded-md hover:shadow-lg text-white text-xs hover:shadow'>Button</button>
         <cart  @click.prevent = 'toggleModal'> </cart>
 
         <cart_modal v-if='showModal' title ='Name' @toggle-modal ='toggleModal'>

@@ -2,7 +2,9 @@
     <div class=" px-10 md:px-20 lg:px-32">
         <section >
           <div class="flex  h-12 items-center border-b-1 w-full justify-between  ">
-          <logo class="md:w-5/6 md:flex md:justify-center"/>
+          <router-link :to= "{name: 'home'}" exact>
+            <logo class="md:w-5/6 md:flex md:justify-center"/>
+          </router-link>
           <div class="flex">
           <search class ="mr-4 cursor-pointer md:mr-8 lg:mr-12"/>
           <cart  @click.prevent = 'toggleModal' class='cursor-pointer'> </cart>
