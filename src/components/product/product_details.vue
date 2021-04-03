@@ -1,7 +1,7 @@
 <template>
     <div class='px-10 md:px-20 lg:px-32' >
         <div class="flex w-100 flex-col md:flex-row  ">
-        <div class ='md:w-1/2 w-full md:mr-20 '>
+        <div class ='md:w-1/2 w-36 md:mr-20 '>
                 <img src ='../../../images/flowers.jpg' class='item-contain'>
         </div>
         <div class ='md:w-1/2 w-full flex flex-col '>

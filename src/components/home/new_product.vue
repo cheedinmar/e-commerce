@@ -13,7 +13,7 @@
             <div class="flex  justify-between  items-evenly flex-wrap " >
                     <div class="flex flex-col" v-for ="product in products" :key='product.id'>
                         <router-link :to="{name: 'product_details', params: {id: product.id}}">
-                           <div class="md:w-48 md:w-60 w-screen ">
+                           <div class="md:w-48 md:w-60 w-36 ">
                                 <img :src="product.images" class="item-contain"  >
                             </div>
                             <p class="font-semibold text-sm text-center">{{product.name}}</p>
