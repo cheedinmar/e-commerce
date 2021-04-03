@@ -29,7 +29,7 @@
 
             <div class='relative flex items-center'>
                <router-link :to= "{name: 'checkout'}" exact>
-                    <button class='px-32 py-3 bg-blue-700 mr-4 rounded-md hover:shadow-lg text-black text-md hover:shadow'>Checkout</button>
+                    <button class='px-24 py-3 bg-blue-700 mr-4 rounded-md hover:shadow-lg text-black text-md hover:shadow'>Checkout</button>
                 </router-link>
                 <img src="../../../images/right.png" class="w-6 h-6 absolute  left-60">
             </div>

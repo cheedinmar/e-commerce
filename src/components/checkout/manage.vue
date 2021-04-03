@@ -1,5 +1,5 @@
 <template>
-    <div class=" px-10 md:px-20 lg:px-32">
+    <div class=" px-6 md:px-20 lg:px-32">
         <p class= 'font-bold text-3xl leading-7 py-12 tracking-wider'>Checkout</p>
         <div class= 'flex flex-col lg:flex-row  '>
             <div class='mr-24'>
