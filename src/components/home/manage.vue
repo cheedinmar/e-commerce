@@ -3,7 +3,7 @@
  
 
      
-        <div class="flex flex-col md:flex-row">
+        <div class="flex flex-col md:flex-row mb-40 ">
             <div class="h-56 mb-4  md:w-1/2 md:mr-10 lg:mr-20 relative" style="z-index:-100;">
                 <img src="../../../images/flowers.jpg" class="object-contain  ">
                 <div class="absolute flex flex-col top-1/4 right-1/4">

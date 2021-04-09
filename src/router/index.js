@@ -3,11 +3,6 @@ import {
     createWebHistory
  } from 'vue-router'
 import home from "../components/home/manage.vue"
-import product from "../components/product/manage.vue"
-import product_details from "../components/product/product_details.vue"
-import cart from '../components/cart/cart_modal.vue'
-
-import checkout from "../components/checkout/manage.vue"
 
 const routes = [
     {
@@ -17,30 +12,22 @@ const routes = [
     },
     {
         path: '/product',
-        component: product,
+        component: () => import(/*webpackChunkName: 'product'*/ "../components/product/manage.vue"),
         name:'product'
     },
     {
       path:'/product/:id',
-      component:product_details,
-      name:'product_details',
+      component: () => import(/*webpackChunkName: 'product_details'*/ "../components/product/product_details.vue"),
+      name:'product_details'
     },
     {
       path: '/cart',
-      component:cart,
-      name: 'cart',
-      children:[
-        {
-          path:'/checkout',
-          component:checkout,
-          name:'checkout'
-
-        }
-      ]
+      component: () => import(/*webpackChunkName: 'cart'*/ "../components/cart/cart_modal.vue"),
+      name: 'cart'
     },
     {
       path: '/checkout',
-      component:checkout,
+      component: () => import(/*webpackChunkName: 'checkout'*/ "../components/checkout/manage.vue"),
       name:'checkout'
     }
 ]
@@ -48,6 +35,13 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes:routes,
+    scrollBehavior (to, from, savedPosition) {
+      if (savedPosition) {
+        return savedPosition
+      } else {
+        return { top: 0 }
+      }
+    }
   })
 
 //   const router = new VueRouter({
