@@ -28,10 +28,6 @@
 
 <script>
 
-import flower1 from '../../../images/flowers.jpg'
-import flower2 from '../../../images/flowers2.jpg'
-import flower3 from '../../../images/flower3.jpg'
-import flower4 from '../../../images/flowers4.jpg'
 
 export default {
    computed:{

@@ -5,7 +5,7 @@ export const getProducts = ({ commit }) =>{
         commit('SET_PRODUCTS', response.data)
     })
 }
-export const getProduct = ({ commit }, productID) => {
+export const getProduct = ({ commit }, productId) => {
     axios.get('https://fakestoreapi.com/products/${productId}')
     .then(response =>{
         commit('SET_PRODUCT', response.data)

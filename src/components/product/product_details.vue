@@ -1,5 +1,5 @@
 <template>
-    <div class='px-10 md:px-20 lg:px-32' >
+    <div class='px-10 md:px-20 lg:px-32' v-if ='product'  >
         <div class="flex w-100 flex-col md:flex-row  ">
         <div class ='md:w-1/2 w-36 md:mr-20 '>
                 <img :src ='product.image' class='item-contain'>
@@ -7,7 +7,7 @@
         <div class ='md:w-1/2 w-full flex flex-col '>
         <p class='text-sm font-semibold'>{{product.title}}</p>
         <div class='flex py-4 items-center'>
-            <h2 class='text-base font-bold mr-5' >Price</h2>
+            <h2 class='text-base font-bold mr-5' >{{product.price}}</h2>
             <strike class='font-lighter text-xs'>Oldprice</strike>
         </div>
         <div class='py-4'>
@@ -67,15 +67,15 @@
             
         }
     },
-    props:['id'],
+    
     computed:{
         product(){
             return this.$store.state.product;  
         }
-    }
+    },
     mounted(){
-        this.$store.dispatch('getProduct', this.id)
-    }
+        this.$store.dispatch('getProduct', this.$route.params.id)
+    },
     components:{
         relevant_product,
         add,
