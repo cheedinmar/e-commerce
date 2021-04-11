@@ -6,7 +6,7 @@
         </div>
 
         
-        <div class='p-10 flex flex-col fixed modal bg-white rounded-lg ' >
+        <div class='p-10 flex flex-col fixed modal bg-white rounded-lg ' v-for= 'item in cart' :key='item.product.cart'>
             <div class='flex justify-between border-b-2 py-4'>
                 <p class='text-2xl font-bold mr-5'>Your cart</p>
                 <cancel @click.prevent='close' />
@@ -18,8 +18,8 @@
             </form>
 
             <div class='w-full relative my-6'>
-                <p class='border-b-2 w-full  py-3'>{{title}}</p>
-                <p class='absolute right-0 top-0 py-3'>Price</p>
+                <p class='border-b-2 w-full  py-3'>{{item.product.name}}</p>
+                <p class='absolute right-0 top-0 py-3'>{{item.quantity}} * ${{item.product.price}}</p>
             </div>
 
             <div class='w-full relative my-6'>
@@ -46,6 +46,11 @@ import cancel from '../svgs/cancel.vue'
 import add_and_subtract from './add_and_subtract_cart.vue'
 
 export default{
+    computed:{
+        addProductToCart(){
+            return this.$store.state.cart;
+        }
+    },
     components:{
         cancel,
         add_and_subtract

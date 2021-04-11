@@ -6,8 +6,12 @@ export const getProducts = ({ commit }) =>{
     })
 }
 export const getProduct = ({ commit }, productId) => {
-    axios.get('https://fakestoreapi.com/products/${productId}')
+    axios.get(`https://fakestoreapi.com/products/${productId}`)
     .then(response =>{
         commit('SET_PRODUCT', response.data)
     })
+}
+
+export const addProductToCart = ({commit}, {product, quantity}) => {
+    commit('ADD_TO_CART', {product, quantity} )
 }
