@@ -10,14 +10,14 @@
                     </div>
 
             </div>
-            <div class="flex justify-between  items-evenly flex-wrap " >
+            <div class="flex justify-between  items-center flex-wrap " >
                     <div class="flex flex-col" v-for ="product in products" :key='product.id' :product='product'>
                         <router-link :to="{name: 'product_details', params: {id: product.id}}">
-                            <div class="md:w-48 md:w-60 w-30 ">
-                                <img :src="product.image" class="item-contain"  >
+                            <div class="md:w-56 lg:w-64 w-30 h-30 flex ">
+                                <img :src="product.image" class="item-contain justify-center"  >
                             </div>
-                            <p class="font-semibold text-sm text-center">{{product.title}}</p>
-                            <p class="font-semibold text-sm text-center mb-8">{{product.price}}</p>
+                            <p class="font-semibold text-sm text-center md:w-56 lg:w-64 w-30 h-30">{{product.title}}</p>
+                            <p class="font-semibold text-sm text-center mb-8 md:w-56 lg:w-64 w-30 h-30">{{product.price}}</p>
                         </router-link>
                     </div>
             </div>

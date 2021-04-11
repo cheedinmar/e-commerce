@@ -1,6 +1,6 @@
 import axios from 'axios';
 export const getProducts = ({ commit }) =>{
-    axios.get('https://fakestoreapi.com/products?limit=5')
+    axios.get('https://fakestoreapi.com/products')
     .then(response =>{
         commit('SET_PRODUCTS', response.data)
     })

@@ -29,11 +29,11 @@
         </div>
         </div>
         <div class='flex items-center py-4'>
-        <button class='px-24 py-3 bg-blue-700 mr-4 rounded-md hover:shadow-lg text-white text-xs hover:shadow' @click='addToCart()'>Add to cart</button>
+        <button class='px-24 py-3 bg-blue-700 mr-4 rounded-md hover:shadow-lg text-white text-xs hover:shadow' @click='addToCart'>Add to cart</button>
         <cart  @click.prevent = 'toggleModal'> </cart>
 
         <cart_modal v-if='showModal' title ='Name' @toggle-modal ='toggleModal'>
-        </cart_modal>
+        </cart_modal> 
         </div>
 
 
@@ -70,15 +70,21 @@
     methods:{
         addToCart(){
             this.$store.disptach('addProductToCart', {
-                product: this.product,
+                product: this.$store.state.product,
                 quantity: 1
             })
+        },
+        toggleModal(){
+            this.showModal=!this.showModal
         }
     },
     
     computed:{
         product(){
             return this.$store.state.product;  
+        },
+        cart(){
+            return this.$store.state.cart
         }
     },
     mounted(){
@@ -93,10 +99,6 @@
         cart_modal,
         cancel
     },
-    methods:{
-        toggleModal(){
-            this.showModal=!this.showModal
-        }
-    }
+ 
 }
 </script>
