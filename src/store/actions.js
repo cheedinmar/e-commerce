@@ -13,5 +13,11 @@ export const getProduct = ({ commit }, productId) => {
 }
 
 export const addProductToCart = ({commit}, {product, quantity}) => {
-    commit('ADD_TO_CART', {product, quantity} )
+
+    commit('ADD_TO_CART',{ 
+    						product, 
+    						quantity 
+    					});
+
+
 }

@@ -12,6 +12,7 @@ export const SET_PRODUCT =  (state, product) =>{
 } 
 
 export const ADD_TO_CART = (state, {product, quantity}) => {
+	
      state.cart.push({
          product,
          quantity

@@ -79,18 +79,14 @@
 
         addToCart(){
 
-                // this.$store.disptach('addProductToCart', {
-                //     product: this.$store.state.product,
-                //     quantity: 1
-                // });
+            let this_ = this;
 
-                var product_cart_array = [];
+                this.$store.commit('ADD_TO_CART',{
 
-                product_cart_array.push(this.$store.state.product);
+                    product: this.$store.state.product,
 
-                this.$store.commit('ADD_PRODUCTS_TO_CART', product_cart_array);
-
-                console.log(this.$store.state);
+                    quantity: 1
+            });  
 
 
         },
@@ -100,10 +96,12 @@
     },
     
     computed:{
+
         product(){
             
             return this.$store.state.product;  
         },
+
         cart(){
             return this.$store.state.cart
         }

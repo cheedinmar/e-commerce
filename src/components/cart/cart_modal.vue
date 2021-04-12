@@ -11,14 +11,14 @@
                 <p class='text-2xl font-bold mr-5'>Your cart</p>
                 <cancel @click.prevent='close' />
             </div>
-
+<!-- 
             <form class='flex flex-col justify-center'>
                 <input type ='text' class='border rounded-md py-3 my-5  bg-gray-100' placeholder='Add Promocode'/>
                 <button class='px-32 py-3 bg-blue-700  rounded-md hover:shadow-lg text-white text-md hover:shadow'> Apply</button>
-            </form>  
+            </form>  --> 
 
-            <div class='w-full relative my-6' v-for= 'item in cart' :key='item.product.id'>
-                <p class='border-b-2 w-full  py-3'>{{item.product.name}}</p>
+            <div class='w-full relative my-6' v-for= 'item in get_cart' :key='item.product.id'>
+                <p class='border-b-2 w-full  py-3'>{{item.product.title}}</p>
                 <p class='absolute right-0 top-0 py-3'>{{item.quantity}} * ${{item.product.price}}</p>
             </div>
 
@@ -69,7 +69,7 @@ export default{
     computed:{
 
           get_cart: function () {
-              // `this` points to the vm instance
+            
               return this.$store.state.cart;
 
             }
@@ -78,7 +78,6 @@ export default{
         close(){
             this.$emit('toggle-modal');
 
-            console.log(this.$store.state);
         }
     }
 }
