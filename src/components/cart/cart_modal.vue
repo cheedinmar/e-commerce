@@ -47,7 +47,7 @@ import add_and_subtract from './add_and_subtract_cart.vue'
 
 export default{
     computed:{
-        addProductToCart(){
+        cart(){
             return this.$store.state.cart;
         }
     },
@@ -59,6 +59,9 @@ export default{
         title:{
             type: String,
             required: true
+        },
+        product:{
+            
         }
     },
     data(){
