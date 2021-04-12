@@ -4,8 +4,7 @@ export const SET_PRODUCTS = (state, products)  =>{
 
 export const ADD_PRODUCTS_TO_CART = (state,product_cart)  =>{
     
-    var product_cart_array = [];
-    state.cart = product_cart_array.push(product_cart);
+    state.cart = product_cart;
 }
 
 export const SET_PRODUCT =  (state, product) =>{

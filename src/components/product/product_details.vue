@@ -22,6 +22,8 @@
         </div>
          <div class='py-4'>
         <p class='font-lighter text-xs'> Color:</p>
+
+        <p>{{test_cart}}</p>
         <div class='flex'>
             <color class='mr-2'/>
             <color class='mr-2'/>
@@ -63,22 +65,34 @@
     export default {
     data(){
         return{
+
             id: this.$route.params.id,
+
             showModal:false  ,
 
-            product: [],  
+            product: [],
         }
     },
     props:['product'],
+
     methods:{
+
         addToCart(){
-            // this.$store.disptach('addProductToCart', {
-            //     product: this.$store.state.product,
-            //     quantity: 1
-            // })
-              this.$store.commit('ADD_PRODUCTS_TO_CART', this.$store.state.product)
-              console.log(this.$store.state.cart);
-    //    console.log(this.$store.state.product);
+
+                // this.$store.disptach('addProductToCart', {
+                //     product: this.$store.state.product,
+                //     quantity: 1
+                // });
+
+                var product_cart_array = [];
+
+                product_cart_array.push(this.$store.state.product);
+
+                this.$store.commit('ADD_PRODUCTS_TO_CART', product_cart_array);
+
+                console.log(this.$store.state);
+
+
         },
         toggleModal(){
             this.showModal=!this.showModal

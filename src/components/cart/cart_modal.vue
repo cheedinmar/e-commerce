@@ -66,9 +66,19 @@ export default{
             showModal:false
         }
     },
+    computed:{
+
+          get_cart: function () {
+              // `this` points to the vm instance
+              return this.$store.state.cart;
+
+            }
+    },
     methods: {
         close(){
             this.$emit('toggle-modal');
+
+            console.log(this.$store.state);
         }
     }
 }
