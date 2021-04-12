@@ -22,6 +22,8 @@
         </div>
          <div class='py-4'>
         <p class='font-lighter text-xs'> Color:</p>
+
+        <p>{{test_cart}}</p>
         <div class='flex'>
             <color class='mr-2'/>
             <color class='mr-2'/>
@@ -63,20 +65,38 @@
     export default {
     data(){
         return{
+
             id: this.$route.params.id,
+
             showModal:false  ,
 
-            product: [],  
+            product: [],
         }
     },
     props:['product'],
+
     methods:{
+
         addToCart(){
+<<<<<<< HEAD
             this.$store.dispatch('addProductToCart', {
                 product: this.$store.state.product,
                 quantity: 1
             })
               
+=======
+
+            let this_ = this;
+
+                this.$store.commit('ADD_TO_CART',{
+
+                    product: this.$store.state.product,
+
+                    quantity: 1
+            });  
+
+
+>>>>>>> 0bcda607239868cfc26060b0ba5b2d589c7196d7
         },
         toggleModal(){
             this.showModal=!this.showModal
@@ -84,10 +104,12 @@
     },
     
     computed:{
+
         product(){
             
             return this.$store.state.product;  
         },
+
         cart(){
             return this.$store.state.cart
         }

@@ -18,9 +18,17 @@
                             </div>
                             <p class="font-semibold text-sm text-center md:w-56 lg:w-64 w-30 h-30">{{product.title}}</p>
                             <p class="font-semibold text-sm text-center mb-8 md:w-56 lg:w-64 w-30 h-30">{{product.price}}</p>
+                            <br>
+
                         </router-link>
+<<<<<<< HEAD
                         <button class='px-24 py-3 bg-blue-700 mr-4 rounded-md hover:shadow-lg text-white text-xs hover:shadow' @click='addToCart()'>Add to cart</button>
+=======
+
+                        <button type="button" class="px-24 py-3 bg-blue-700 mr-4 rounded-md hover:shadow-lg text-white text-xs hover:shadow" @click="add_to_cart(product)"> Add to Cart </button>
+>>>>>>> 0bcda607239868cfc26060b0ba5b2d589c7196d7
                     </div>
+
             </div>
       </div>
       </section>
@@ -31,24 +39,44 @@
 
 
 export default {
+
     data(){
-        return{
-            product:this.$store.state.product
+        return {
+
         }
     },
+
    computed:{
         products(){
+
             return this.$store.state.products;
         }
    },
+<<<<<<< HEAD
    methods:{
     addToCart(){
             this.$store.disptach('addProductToCart', {
                 product: product,
                 quantity: 1   
             })
+=======
+
+   methods:{
+
+        add_to_cart(product){
+
+            this.$store.commit('ADD_TO_CART',{
+
+                    product: product,
+
+                    quantity: 1
+            });           
+         
+        }
+>>>>>>> 0bcda607239868cfc26060b0ba5b2d589c7196d7
    },
     mounted(){
+
         this.$store.dispatch('getProducts')
     }
         
