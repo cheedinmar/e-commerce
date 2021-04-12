@@ -12,6 +12,7 @@
                     <button class= "font-light text-sm cursor-pointer hover:underline">See more</button>
                 </div>
             </div>
+            
             <div class="h-56 md:w-1/2 relative" style="z-index:-100;">
                 <img src="../../../images/flowers2.jpg" class="object-contain " >
                 <div class="absolute flex flex-col top-1/4 right-1/4">

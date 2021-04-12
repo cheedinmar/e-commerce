@@ -58,21 +58,27 @@
     import cart_modal from '../cart/cart_modal.vue'
     import cancel from '../svgs/cancel.vue'
 
+    
+
     export default {
     data(){
         return{
             id: this.$route.params.id,
-            showModal:false
+            showModal:false  ,
 
-            
+            product: [],  
         }
     },
+    props:['product'],
     methods:{
         addToCart(){
-            this.$store.disptach('addProductToCart', {
-                product: this.$store.state.product,
-                quantity: 1
-            })
+            // this.$store.disptach('addProductToCart', {
+            //     product: this.$store.state.product,
+            //     quantity: 1
+            // })
+              this.$store.commit('ADD_PRODUCTS_TO_CART', this.$store.state.product)
+              console.log(this.$store.state.cart);
+    //    console.log(this.$store.state.product);
         },
         toggleModal(){
             this.showModal=!this.showModal
@@ -81,6 +87,7 @@
     
     computed:{
         product(){
+            
             return this.$store.state.product;  
         },
         cart(){
