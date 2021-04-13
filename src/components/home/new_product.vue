@@ -10,23 +10,17 @@
                     </div>
 
             </div>
-            <div class="flex justify-between  items-center flex-wrap " >
-                    <div class="flex flex-col sm:mb-10" v-for ="product in products" :key='product.id' :product='product'>
-                        <router-link :to="{name: 'product_details', params: {id: product.id}}">
-                            <div class="md:w-56 lg:w-64 w-30 h-30 flex ">
-                                <img :src="product.image" class="item-contain justify-center"  >
+            <div class="flex justify-between   items-center flex-wrap mb-16 " >
+                    <div class="flex flex-col w-full mb-16 md:mb-16  md:w-72   items-center justify-center " v-for ="product in products" :key='product.id' :product='product'>
+                        <router-link :to="{name: 'product_details', params: {id: product.id}}" class='md:w-64 mb-2 flex items-center flex-col  '>
+                            <div class=" flex justify-center items-center  ">
+                                <img :src="product.image" class=" object-contain md:w-48 md:h-48 w-full "  >
                             </div>
-                            <p class="font-semibold text-sm text-center md:w-56 lg:w-64 w-30 h-30">{{product.title}}</p>
-                            <p class="font-semibold text-sm text-center mb-8 md:w-56 lg:w-64 w-30 h-30">{{product.price}}</p>
-                            <br>
-
+                            <p class="font-semibold text-sm text-center md:w-56 md:w-32 w-full md:h-20 h-12  ">{{product.title}}</p>
+                            <p class="font-semibold text-sm text-center mb-3 md:w-56 lg:w-64 w-32 ">${{product.price}}</p>
                         </router-link>
-<<<<<<< HEAD
-                        <button class='px-24 py-3 bg-blue-700 mr-4 rounded-md hover:shadow-lg text-white text-xs hover:shadow' @click='addToCart()'>Add to cart</button>
-=======
 
-                        <button type="button" class="px-24 py-3 bg-blue-700 mr-4 rounded-md hover:shadow-lg text-white text-xs hover:shadow" @click="add_to_cart(product)"> Add to Cart </button>
->>>>>>> 0bcda607239868cfc26060b0ba5b2d589c7196d7
+                        <button type="button" class="px-12 py-3 bg-blue-700  rounded-md hover:shadow-lg text-white text-xs hover:shadow" @click="add_to_cart(product)"> Add to Cart </button>
                     </div>
 
             </div>
@@ -52,14 +46,6 @@ export default {
             return this.$store.state.products;
         }
    },
-<<<<<<< HEAD
-   methods:{
-    addToCart(){
-            this.$store.disptach('addProductToCart', {
-                product: product,
-                quantity: 1   
-            })
-=======
 
    methods:{
 
@@ -73,7 +59,6 @@ export default {
             });           
          
         }
->>>>>>> 0bcda607239868cfc26060b0ba5b2d589c7196d7
    },
     mounted(){
 
@@ -81,7 +66,7 @@ export default {
     }
         
    }    
-    }
+    
 
 </script>
 

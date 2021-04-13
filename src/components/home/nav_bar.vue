@@ -8,6 +8,7 @@
           <div class="flex">
           <search class ="mr-4 cursor-pointer md:mr-8 lg:mr-12"/>
           <cart  @click.prevent = 'toggleModal' class='cursor-pointer'> </cart>
+          <div>{{cartItemCount}}</div>
 
         <cart_modal v-if='showModal' title ='Name' @toggle-modal ='toggleModal'>
         </cart_modal>
@@ -57,6 +58,11 @@ import cart_modal from "../cart/cart_modal.vue"
       return{
         showModal:false
       }
+    },
+    computed:{
+              cartItemCount(){
+            return this.$store.getters.cartItemCount;
+        }
     }
   }
 </script>

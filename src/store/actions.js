@@ -13,17 +13,28 @@ export const getProduct = ({ commit }, productId) => {
 }
 
 export const addProductToCart = ({commit}, {product, quantity}) => {
-<<<<<<< HEAD
-    commit('ADD_TO_CART', {product, quantity} )
-}
-
-=======
 
     commit('ADD_TO_CART',{ 
     						product, 
     						quantity 
     					});
-
-
+    axios.post('https://fakestoreapi.com/carts', {
+        product_id: product.id,
+        quantity
+    });
 }
->>>>>>> 0bcda607239868cfc26060b0ba5b2d589c7196d7
+
+export const getCartItems = ({commit}) => {
+    axios.get('https://fakestoreapi.com/cart')
+    .then(response =>{
+        commit ('SET_CART', response.data)
+    })
+}
+export const removeProductFromCart = ({commit}, product) =>{
+    commit('REMOVE_PRODUCT_FROM_CART', product)
+}
+
+export const clearCartItems = ({commit} ) =>{
+    commit ('CLEAR_CART_ITEMS')
+}
+

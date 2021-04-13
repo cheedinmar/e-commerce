@@ -33,6 +33,7 @@
         <div class='flex items-center py-4'>
         <button class='px-24 py-3 bg-blue-700 mr-4 rounded-md hover:shadow-lg text-white text-xs hover:shadow' @click='addToCart()'>Add to cart</button>
         <cart  @click.prevent = 'toggleModal'> </cart>
+        <div>{{cartItemCount}}</div>
 
         <cart_modal v-if='showModal' title ='Name' @toggle-modal ='toggleModal'>
         </cart_modal> 
@@ -78,13 +79,6 @@
     methods:{
 
         addToCart(){
-<<<<<<< HEAD
-            this.$store.dispatch('addProductToCart', {
-                product: this.$store.state.product,
-                quantity: 1
-            })
-              
-=======
 
             let this_ = this;
 
@@ -96,7 +90,6 @@
             });  
 
 
->>>>>>> 0bcda607239868cfc26060b0ba5b2d589c7196d7
         },
         toggleModal(){
             this.showModal=!this.showModal
@@ -112,6 +105,9 @@
 
         cart(){
             return this.$store.state.cart
+        },
+        cartItemCount(){
+            return this.$store.getters.cartItemCount;
         }
     },
     mounted(){
