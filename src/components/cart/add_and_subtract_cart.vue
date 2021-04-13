@@ -1,5 +1,5 @@
 <template>
-        <div class='flex flex-col  border rounded-md hover:shadow-lg p-6'>
+        <div class='flex flex-col  border rounded-md hover:shadow-lg p-6 lg:w-1/2 md:w-2/3 w-full '>
             <div class='flex justify-between items-center mb-10'>
                 <p class='font-black text-base'>Order total (N) </p>
                 <p class='text-sm font-light'>edit</p>

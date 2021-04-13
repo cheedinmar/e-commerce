@@ -6,3 +6,14 @@
         </form>
     </div>
 </template>
+
+<script>
+
+export default {
+    computed:{
+        onClickButton (event) {
+      this.$emit('clicked', 'someValue')
+    }
+    }
+}
+</script>
