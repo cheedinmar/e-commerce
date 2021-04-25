@@ -14,7 +14,7 @@
                 <p class='absolute right-0 top-0 py-3'>Price</p>
             </div>
 
-            <div class='w-full py-3 my-3 flex items-start justify-start border-b-2 ' v-for= 'item in get_cart' :key='item.product.id'>
+            <div class='w-full py-3 my-3 flex items-start justify-start border-b-2 ' v-for= 'item in cart' :key='item.product.id'>
                 <p class='  mr-5  w-2/3'>{{item.product.title}}</p>
                 <div class='w-1/3 flex items-center'>
                     <p class=' w-2/3 mr-3'>{{item.quantity}} * ${{item.product.price}}</p>
@@ -48,15 +48,11 @@
 </template>
 
 <script>
+import {mapState, mapGetters, mapActions} from 'vuex';
 import cancel from '../svgs/cancel.vue'
 import add_and_subtract from './add_and_subtract_cart.vue'
 
 export default{
-    computed:{
-        cart(){
-            return this.$store.state.cart;
-        }
-    },
     components:{
         cancel,
         add_and_subtract
@@ -76,31 +72,15 @@ export default{
         }
     },
     computed:{
-
-          get_cart: function () {
-            
-              return this.$store.state.cart;
-
-            },
-            cartTotalPrice(){
-                return this.$store.getters.cartTotalPrice;
-            }
+            ...mapState(['cart']),
+            ...mapGetters(['cartTotalPrice'])
     },
-    methods: {
+    methods: { 
         close(){
             this.$emit('toggle-modal');
+         },
+        ...mapActions(['removeProductFromCart','clearCartItems'])
 
-        },
-        removeProductFromCart(product){
-            this.$store.dispatch('removeProductFromCart', product)
-        },
-        clearCartItems(){
-            this.$store.dispatch('clearCartItems' )
-        }
-
-    },
-    mounted(){
-        this.$store.dispatch('getCartItems');
     }
 }
 </script>

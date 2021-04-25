@@ -30,21 +30,16 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 
 
 export default {
 
-    data(){
-        return {
-
-        }
-    },
-
    computed:{
-        products(){
-
-            return this.$store.state.products;
-        }
+        ...mapState({
+            products:state=>state.product.products
+            //product is the name of the module
+        })
    },
 
    methods:{
@@ -64,6 +59,7 @@ export default {
 
         this.$store.dispatch('getProducts')
     }
+
         
    }    
     

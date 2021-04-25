@@ -1,6 +1,6 @@
 <template>
-    <div class='px-10 md:px-20 lg:px-32' v-if ='product'  >
-        <div class="flex w-100 flex-col md:flex-row  ">
+    <div class='px-10 md:px-20 lg:px-32' v-if="product" >
+        <div class="flex w-100 flex-col md:flex-row  " >
         <div class ='md:w-1/2 w-36 md:mr-20 '>
                 <img :src ='product.image' class='item-contain'>
         </div>
@@ -8,22 +8,20 @@
         <p class='text-sm font-semibold'>{{product.title}}</p>
         <div class='flex py-4 items-center'>
             <h2 class='text-base font-bold mr-5' >{{product.price}}</h2>
-            <strike class='font-lighter text-xs'>Oldprice</strike>
+            <s class='font-lighter text-xs'>Oldprice</s>
         </div>
         <div class='py-4'>
-        <p class='font-lighter text-xs'> Count:</p>
+        <p class='font-lighter text-xs'> </p>
         <div class='flex'>
-            <add class='mr-2'/>
-            <p class='text-base font-bold mr-2'> N </p>
-            <subtract >
-            
-            </subtract>
+            <add class='mr-2 cursor-pointer' @click='increaseProductQuantity()'/>
+            <p class='text-base font-bold mr-2'>$Price</p>
+            <subtract class='cursor-pointer' @click = ''/>
         </div>
         </div>
          <div class='py-4'>
         <p class='font-lighter text-xs'> Color:</p>
 
-        <p>{{test_cart}}</p>
+        
         <div class='flex'>
             <color class='mr-2'/>
             <color class='mr-2'/>
@@ -60,8 +58,7 @@
     import cart from '../svgs/cart.vue'
     import cart_modal from '../cart/cart_modal.vue'
     import cancel from '../svgs/cancel.vue'
-
-    
+    import {mapGetters, mapState, mapActions} from 'vuex';
 
     export default {
     data(){
@@ -71,10 +68,8 @@
 
             showModal:false  ,
 
-            product: [],
         }
     },
-    props:['product'],
 
     methods:{
 
@@ -97,18 +92,9 @@
     },
     
     computed:{
-
-        product(){
-            
-            return this.$store.state.product;  
-        },
-
-        cart(){
-            return this.$store.state.cart
-        },
-        cartItemCount(){
-            return this.$store.getters.cartItemCount;
-        }
+        ...mapState(['product','cart']),
+        ...mapGetters(['cartItemCount'])
+       
     },
     mounted(){
         this.$store.dispatch('getProduct', this.$route.params.id)
