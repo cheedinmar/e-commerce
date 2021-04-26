@@ -88,7 +88,8 @@
         },
         toggleModal(){
             this.showModal=!this.showModal
-        }
+        },
+        
     },
     
     computed:{

@@ -4,12 +4,12 @@ export const getProducts = ( context ) =>{
     //if length of products is empty then make api call
     //const found = array1.find(element => element > 10);
     
-    if(context.state.products.length < 1){
+    
     product.all()
     .then(response =>{
         context.commit('SET_PRODUCTS', response.data)
     })
-    }
+    
 }
 
 
