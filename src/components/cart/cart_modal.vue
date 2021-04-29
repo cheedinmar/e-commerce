@@ -62,9 +62,6 @@ export default{
             type: String,
             required: true
         },
-        product:{
-            
-        }
     },
     data(){
         return{
@@ -72,7 +69,10 @@ export default{
         }
     },
     computed:{
-            ...mapState(['cart']),
+        ...mapState({
+            cart: state => state.product.cart
+            //product is the name of the module
+        }),
             ...mapGetters(['cartTotalPrice'])
     },
     methods: { 

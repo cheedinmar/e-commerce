@@ -12,11 +12,19 @@ export const getProducts = ( context ) =>{
     
 }
 
-
-export const getProduct = (context, productId) => {
+export const getProduct = ({commit}, productId) => {
     //if product in state does not match with the product id being call, make api call
    product.singleProduct(productId)
     .then(response =>{
-        context.commit('SET_PRODUCT', response.data)
+        commit('SET_PRODUCT', response.data)
     })
+}
+
+
+export const removeProductFromCart = ({commit}, product) =>{
+    commit('REMOVE_PRODUCT_FROM_CART', product)
+}
+
+export const clearCartItems = ({commit} ) =>{
+    commit ('CLEAR_CART_ITEMS')
 }

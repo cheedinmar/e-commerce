@@ -63,12 +63,11 @@
     export default {
     data(){
         return{
-
             id: this.$route.params.id,
-
-            showModal:false  ,
-
+            showModal:false,
+            prod: null  
         }
+        
     },
 
     methods:{
@@ -92,13 +91,22 @@
         
     },
     
-    computed:{
-        ...mapState(['product','cart']),
+    computed:{ 
+        ...mapState({
+            product: state => state.product.product,
+            cart: state => state.product.cart
+
+            //product is the name of the module
+        }),
         ...mapGetters(['cartItemCount'])
        
     },
-    mounted(){
+    created(){
         this.$store.dispatch('getProduct', this.$route.params.id)
+        this.prod = this.product;
+    },
+    mounted() {
+      console.log('.', this.prod)
     },
     components:{
         relevant_product,

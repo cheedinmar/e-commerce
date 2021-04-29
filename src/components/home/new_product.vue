@@ -37,7 +37,7 @@ export default {
 
    computed:{
         ...mapState({
-            products:state=>state.product.products
+            products: state => state.product.products
             //product is the name of the module
         })
    },
