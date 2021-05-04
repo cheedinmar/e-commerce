@@ -29,7 +29,7 @@
         </div>
         </div>
         <div class='flex items-center py-4'>
-        <button class='px-24 py-3 bg-blue-700 mr-4 rounded-md hover:shadow-lg text-white text-xs hover:shadow' @click='addToCart()'>Add to cart</button>
+        <button class='px-24 py-3 bg-blue-700 mr-4 rounded-md hover:shadow-lg text-white text-xs hover:shadow' @click='add_to_cart(product)'>Add to cart</button>
         <cart  @click.prevent = 'toggleModal'> </cart>
         <div>{{cartItemCount}}</div>
 
@@ -64,26 +64,22 @@
     data(){
         return{
             id: this.$route.params.id,
-            showModal:false,
-            prod: null  
+            showModal:false,  
         }
         
     },
 
     methods:{
 
-        addToCart(){
+         add_to_cart(product){
 
-            let this_ = this;
+            this.$store.commit('ADD_TO_CART',{
 
-                this.$store.commit('ADD_TO_CART',{
-
-                    product: this.$store.state.product,
+                    product: product,
 
                     quantity: 1
-            });  
-
-
+            });           
+         
         },
         toggleModal(){
             this.showModal=!this.showModal
@@ -103,10 +99,7 @@
     },
     created(){
         this.$store.dispatch('getProduct', this.$route.params.id)
-        this.prod = this.product;
-    },
-    mounted() {
-      console.log('.', this.prod)
+
     },
     components:{
         relevant_product,

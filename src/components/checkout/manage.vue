@@ -9,16 +9,21 @@
                             <p class='text-sm'>Delivery method</p>
                             <a href='#shipping' class="px-12 py-3 bg-blue-700  rounded-md hover:shadow-lg text-white text-xs hover:shadow">Next</a>
                         </div>
-                        <div id="" class='border border-blue-800 rounded-sm p-2.5 flex justify-between items-start my-3' v-for= 'item in get_cart' :key='item.product.id'>
+                        <div id="" class='border border-blue-800 rounded-sm p-2.5 flex justify-between items-start my-3' v-for= 'item in cart' :key='item.product.id'>
                         <div class= 'flex w-4/5'>
                             <radio/>
                             <div class='ml-3 mr-5'>
-                                <h2 class='text-xs  font-black mb-2 '>{{item.product.title}}</h2>
+                                <h2 class='text-xs  font-black mb-2 '>{{item.quantity}} * {{item.product.title}}</h2>
                                 <p class='text-xs font-normal'>{{item.product.description}}</p>
                             </div>
                         </div>
-                        <p class='w-1/5'>{{item.product.price}} * {{item.quantity}}</p>
+                        <p class='w-1/5'>$ {{item.product.price * item.quantity}}</p>
                     </div>
+                    <div>
+                   <h2>Total:</h2>
+                   <p class='font-black'>$  {{cartTotalPrice}} </p>
+                   </div>
+
                 </div>
                 <div class='pt-16' >
                     <p class='text-sm mb-5 delivery_address pt-12' id='shipping'>Delivery Address</p>
@@ -71,6 +76,7 @@ import delivery_method from './delivery_method.vue'
 import delivery_address from './delivery_address.vue'
 import delivery_date from './delivery_date_and_time.vue'
 import add_and_subtract_cart from '../cart/add_and_subtract_cart.vue'
+import {mapActions, mapState, mapGetters} from 'vuex'
 export default{
     components:{
         one,
@@ -110,12 +116,11 @@ export default{
     },
 
     computed:{
-            get_cart(){
-                return this.$store.state.cart;
-            },
-            products(){
-                return this.$store.state.products;
-            }
+            ...mapState({
+                cart: state => state.product.cart,
+                products:state=> state.product.products
+            }),
+            ...mapGetters(['cartTotalPrice'])
     },
     mounted(){
 
